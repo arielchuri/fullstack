@@ -1,0 +1,15 @@
+{
+  "name": "naga",
+  "version": "1.0.0",
+  "description": "An information management and chat system for table top role playing games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariel Churi",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.7"
+  }
+}
