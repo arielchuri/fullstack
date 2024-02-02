@@ -20,4 +20,21 @@ process.on('SIGINT', () => {
   });
 });
 
-module.exports = db;
+// Function to insert user-entered text into the userData table
+function insertUserText(userText, callback) {
+  const sql = 'INSERT INTO userData (udata) VALUES (?)';
+  db.run(sql, [userText], function(err) {
+    if (err) {
+      console.error('Error inserting user text:', err);
+      callback(err, null);
+    } else {
+      console.log('User text inserted with ID:', this.lastID);
+      callback(null, { id: this.lastID });
+    }
+  });
+}
+
+module.exports = {
+  db,
+  insertUserText
+};

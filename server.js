@@ -11,10 +11,17 @@ app.use(express.json());
 
 // Define a route to handle the POST request from the frontend
 app.post('/submit-data', (req, res) => {
-  const postData = req.body; // Assuming the data is sent in the request body
-  // Process the submitted data, e.g., add it to the database
-  console.log('Data received from the frontend:', postData);
-  res.send('Data received and processed');
+  const userText = req.body.userInput; // Extract the user-entered text from the request body
+  // Add the user-entered text to the database
+  db.insertUserText(userText, (err, result) => {
+    if (err) {
+      console.error('Error adding user text to the database:', err);
+      res.status(500).send('Error adding user text to the database');
+    } else {
+      console.log('User text added to the database:', result);
+      res.status(200).send('User text added to the database');
+    }
+  });
 });
 
 // Define a route for the homepage
