@@ -30,7 +30,7 @@ const InputCard = () => {
 
   // The JSX code for rendering the component
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center">
       <div className="card w-96 bg-neutral text-neutral-content">
         <div className="card-body items-center text-center">
           <h2 className="card-title">Hello, World!</h2>

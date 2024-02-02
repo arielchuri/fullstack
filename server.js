@@ -24,6 +24,19 @@ app.post('/submit-data', (req, res) => {
   });
 });
 
+// Define a route to handle the GET request for /api/data
+app.get('/api/data', (req, res) => {
+  // Retrieve data from the database and send it as the response
+  db.getData((err, data) => {
+    if (err) {
+      console.error('Error fetching data from the database:', err);
+      res.status(500).send('Error fetching data from the database');
+    } else {
+      res.status(200).json(data);
+    }
+  });
+});
+
 // Define a route for the homepage
 app.get('/', (req, res) => {
   res.send('Hello, Express!');

@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import InputCard from '../components/InputCard';
 import ChatGPT from '../components/ChatGPT';
+import DatabaseUpdater from '../components/DatabaseUpdater';
 
 const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ const HomePage = () => {
       {/* Your home page content goes here */}
       <ChatGPT />
       <InputCard />
+      <DatabaseUpdater />
     </Layout>
   );
 };

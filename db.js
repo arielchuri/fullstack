@@ -34,7 +34,21 @@ function insertUserText(userText, callback) {
   });
 }
 
+// Function to retrieve data from the database
+function getData(callback) {
+  const sql = 'SELECT * FROM userData';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.error('Error retrieving data:', err);
+      callback(err, null);
+    } else {
+      callback(null, rows);
+    }
+  });
+}
+
 module.exports = {
   db,
-  insertUserText
+  insertUserText,
+  getData // Include the getData function in the module exports
 };
